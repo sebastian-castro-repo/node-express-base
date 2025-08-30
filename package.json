@@ -1,0 +1,41 @@
+{
+  "name": "node-express-base",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon src/server.js",
+    "test-env": "cross-env NODE_ENV=testing nodemon src/server.js",
+    "prod": "cross-env NODE_ENV=production node src/server.js",
+    "start": "cross-env NODE_ENV=production node src/server.js",
+    "start:test": "cross-env NODE_ENV=testing node src/server.js",
+    "lint": "eslint src --fix",
+    "migrate:dev": "cross-env NODE_ENV=development dotenv -e .env.development -- prisma migrate dev --name init",
+    "migrate:test": "cross-env NODE_ENV=testing dotenv -e .env.testing -- prisma migrate dev --name init",
+    "migrate:prod": "cross-env NODE_ENV=production dotenv -e .env.production -- prisma migrate deploy"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.15.0",
+    "ajv": "^8.17.1",
+    "bcryptjs": "^3.0.2",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "cross-env": "^10.0.0",
+    "dotenv-cli": "^10.0.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "nodemon": "^3.0.0",
+    "prettier": "^3.0.0",
+    "prisma": "^6.15.0"
+  }
+}
